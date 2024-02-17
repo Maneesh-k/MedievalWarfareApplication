@@ -10,7 +10,7 @@ COPY service/medievalwarefare ./service/medievalwarefare
 
 COPY libs ./libs
 
-RUN ./gradlew clean :services:medievalwarefare:build
+RUN ./gradlew clean :service:medievalwarefare:build
 
 FROM amazoncorretto:17-alpine-jdk
 
