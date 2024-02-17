@@ -1,0 +1,53 @@
+spring:
+    application:
+        name: notification
+    profiles:
+        active: ${PROFILE:local}
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+
+springdoc:
+    swagger-ui:
+        path: /swagger
+        tryItOutEnabled: true
+        operationsSorter: method
+        tagsSorter: alpha
+        filter: true
+
+security:
+    header-name: Authorization
+
+---
+spring:
+    config:
+        activate:
+            on-profile: local
+   
+server:
+    port: 3000
+
+jwt:
+    secret: ========================DISPATCH=KEY============================
+
+auth:
+    secret: 1234567890
+
+
+---
+spring:
+    config:
+        activate:
+            on-profile: cloud
+server:
+    port: ${PORT}
+
+jwt:
+    secret: ${JWT_SECRET}
+
+auth:
+    secret: ${AUTH_SECRET}
+

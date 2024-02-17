@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+    application:
+        image: notification
+        build:
+            context: .
+            dockerfile: services/medievalwarefare/Dockerfile
+ 
+        ports:
+            - "3000:3000"
+        depends_on:
+            notification-db:
+                condition: service_healthy
+
+   
+volumes:
+    notification-data:
+    scheduler-data:

@@ -1,0 +1,5 @@
+rootProject.name = 'medievalwarefare'
+
+include("service:medievalwarefare")
+
+include('libs:common', 'libs:logger', 'libs:exception')
