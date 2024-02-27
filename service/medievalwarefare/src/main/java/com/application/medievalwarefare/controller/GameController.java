@@ -1,7 +1,7 @@
 package com.application.medievalwarefare.controller;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.application.medievalwarefare.dto.BattleRequestDTO;
 import com.application.medievalwarefare.entity.BattleOutcome;
@@ -22,9 +22,9 @@ public class GameController {
 	private GameService gameService;
 
 	@PostMapping("/battle")
-	public ResponseEntity<Map<String, List<BattleOutcome>>> conductBattle(
+	public ResponseEntity<Map<String, Set<BattleOutcome>>> conductBattle(
 			@Valid @RequestBody BattleRequestDTO requestDTO) {
-		Map<String, List<BattleOutcome>> winningArrangement = gameService.findWinningArrangement(requestDTO);
+		Map<String, Set<BattleOutcome>> winningArrangement = gameService.findWinningArrangement(requestDTO);
 
 		return ResponseEntity.status(HttpStatus.OK).body(winningArrangement);
 	}

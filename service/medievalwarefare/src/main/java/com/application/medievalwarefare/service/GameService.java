@@ -1,7 +1,7 @@
 package com.application.medievalwarefare.service;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.application.medievalwarefare.dto.BattleRequestDTO;
 import com.application.medievalwarefare.entity.BattleEntity;
@@ -20,11 +20,11 @@ public class GameService {
 	@Autowired
 	MapStructMapper mapStructMapper;
 
-	public Map<String, List<BattleOutcome>> findWinningArrangement(BattleRequestDTO requestDTO) {
+	public Map<String, Set<BattleOutcome>> findWinningArrangement(BattleRequestDTO requestDTO) {
 
 		BattleEntity battleEntity = mapStructMapper.toBattleEntity(requestDTO);
 
-		List<BattleOutcome> winningArrangement = arrangementStrategy.findWinningArrangement(battleEntity);
+		Set<BattleOutcome> winningArrangement = arrangementStrategy.findWinningArrangement(battleEntity);
 
 		return Map.of("battle", winningArrangement);
 	}
