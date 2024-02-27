@@ -2,7 +2,6 @@ package com.application.medievalwarefare.service;
 
 import java.util.HashSet;
 import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Set;
 
 import com.application.medievalwarefare.dto.Soldier;
@@ -59,16 +58,14 @@ public class BattleCalculator {
 			Float currentOpponentTerrain =
 					opponentUnit.getValue() * terrainEffectProvider.getTerrainEffects(opponentUnit.getKey());
 
-			
-					Float outcome ;
-			if(hasAdvantage(yourEntry.getKey(), opponentUnit.getKey())) {
+			Float outcome;
+			if (hasAdvantage(yourEntry.getKey(), opponentUnit.getKey())) {
 
-				 outcome = currentYourTerrain * 2 - currentOpponentTerrain;
-			}else {
+				outcome = currentYourTerrain * 2 - currentOpponentTerrain;
+			} else {
 
-			 outcome = currentYourTerrain  - currentOpponentTerrain;
+				outcome = currentYourTerrain - currentOpponentTerrain;
 			}
-
 
 			boolean isWin = Float.compare(Math.max(0, outcome), 0) > 0;
 
